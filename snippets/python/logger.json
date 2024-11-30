@@ -1,0 +1,24 @@
+{
+  "logger full snippets": {
+    "prefix": "logger_full",
+    "body": [
+      "import logging",
+      "",
+      "logger = logging.getLogger(__name__)",
+      "logger.setLevel(logging.DEBUG)",
+      "fmt = \"%(levelname)-9s  %(asctime)s [%(filename)s:%(lineno)d] %(message)s\"",
+      "",
+      "st_handler = logging.StreamHandler()",
+      "st_handler.setLevel(logging.DEBUG)",
+      "st_handler.setFormatter(logging.Formatter(fmt))",
+      "logger.addHandler(st_handler)",
+      "",
+      "logfile = '${1:filename}'",
+      "fl_handler = logging.FileHandler(filename=logfile, encoding='utf-8')",
+      "fl_handler.setLevel(logging.DEBUG)",
+      "fl_handler.setFormatter(logging.Formatter(fmt))",
+      "logger.addHandler(fl_handler)",
+      "$0"
+    ]
+  }
+}
