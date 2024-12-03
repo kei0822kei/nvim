@@ -1,0 +1,11 @@
+{
+  "set device": {
+    "prefix": "torch_device",
+    "body": [
+      "import torch",
+      "",
+      "DEVICE = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')",
+      "$0"
+    ]
+  }
+}
