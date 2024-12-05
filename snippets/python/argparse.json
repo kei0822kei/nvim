@@ -1,0 +1,21 @@
+{
+  "initialize argparse": {
+    "prefix": "argparse_init",
+    "body": [
+      "import argparse",
+      "",
+      "",
+      "def get_argparse():",
+      "    parser = argparse.ArgumentParser(",
+      "        description=__doc__, formatter_class=argparse.ArgumentDefaultsHelpFormatter",
+      "    )",
+      "    parser.add_argument(\"--${1:name}\", type=${2:type}, help=\"${3:help}\")",
+      "    args = parser.parse_args()",
+      "    return args",
+      "",
+      "",
+      "args = get_argparse()",
+      "$0"
+    ]
+  }
+}
