@@ -1,0 +1,128 @@
+{
+  "initialize dash": {
+    "prefix": "dash_init",
+    "body": [
+      "import argparse",
+      "import dash",
+      "from dash import dash_table, dcc, html",
+      "from dash.dependencies import Input, Output",
+      "import plotly_express as px",
+      "",
+      "",
+      "def get_argparse():",
+      "    parser = argparse.ArgumentParser(",
+      "        description=__doc__, formatter_class=argparse.ArgumentDefaultsHelpFormatter",
+      "    )",
+      "    parser.add_argument(\"--host\", type=str, default=\"0.0.0.0\", help=\"Host ip.\")",
+      "    parser.add_argument(\"--port\", type=int, default=${1:port number}, help=\"Port number.\")",
+      "    parser.add_argument(\"--debug\", action=\"store_true\", help=\"Debug mode.\")",
+      "    args = parser.parse_args()",
+      "    return args",
+      "",
+      "",
+      "args = get_argparse()",
+      "",
+      "app = dash.Dash()",
+      "",
+      "app.layout = html.Div(",
+      "    [",
+      "        html.H1(\"${2:page title}\"),$0",
+      "    ]",
+      ")",
+      "",
+      "if __name__ == \"__main__\":",
+      "    app.run_server(host=args.host, port=args.port, debug=args.debug)"
+    ]
+  },
+  "dash checklist": {
+    "prefix": "dash_checklist",
+    "body": [
+      "dcc.Checklist(",
+      "    options=[",
+      "        {\"label\": \"label1\", \"value\": \"value1\"},",
+      "        {\"label\": \"label2\", \"value\": \"value2\"},",
+      "    ],",
+      "    value=[\"label1\", \"label2\"],",
+      "),",
+      "$0"
+    ]
+  },
+  "dash ratioitem": {
+    "prefix": "dash_radioitem",
+    "body": [
+      "dcc.RadioItems(",
+      "    options=[",
+      "        {\"label\": \"label1\", \"value\": \"value1\"},",
+      "        {\"label\": \"label2\", \"value\": \"value2\"},",
+      "    ],",
+      "    value=\"value1\",",
+      "),",
+      "$0"
+    ]
+  },
+  "dash dropdown": {
+    "prefix": "dash_dropdown",
+    "body": [
+      "dcc.Dropdown(",
+      "    id=\"${1:componet id}\",",
+      "    options=[],",
+      "    value=\"default value\",",
+      "    style={\"width\": \"30%\"},",
+      "),",
+      "$0"
+    ]
+  },
+  "dash slider": {
+    "prefix": "dash_slider",
+    "body": [
+      "dcc.Slider(min=0, max=10, step=1),",
+      "$0"
+    ]
+  },
+  "dash textarea": {
+    "prefix": "dash_textarea",
+    "body": [
+      "dcc.Textarea(",
+      "    placeholder=\"please input text\",",
+      "    style={\"width\": \"100%\"},",
+      "),",
+      "$0"
+    ]
+  },
+  "dash table": {
+    "prefix": "dash_table",
+    "body": [
+      "dash_table.DataTable(",
+      "    style_cell={\"textAlign\": \"center\", \"width\": \"100px\"},",
+      "    fixed_rows={\"headers\": True},",
+      "    page_size=15,",
+      "    sort_action=\"native\",",
+      "    filter_action=\"native\",",
+      "    columns=[{\"name\": col, \"id\": col} for col in df.columns],",
+      "    data=df.to_dict(\"records\"),",
+      "    fill_width=False,",
+      "),",
+      "$0"
+    ]
+  },
+  "dash graph": {
+    "prefix": "dash_graph",
+    "body": [
+      "dcc.Graph(id=\"${1:component id}\", style={\"width\": \"60%\"}),",
+      "$0"
+    ]
+  },
+  "dash callback": {
+    "prefix": "dash_callback",
+    "body": [
+      "@app.callback(",
+      "    Output(component_id=\"${1:output component id}\", component_property=\"${2:output component property}\"),",
+      "    Input(component_id=\"${3:input component id}\", component_property=\"${4:input component property}\"),",
+      ")",
+      "def ${5:definition}(${4:input component property}):",
+      "    ${2:output component property} = px.scatter(df, x=\"xkey\", y=\"ykey\", log_x=True, color=\"ckey\")",
+      "    return ${2:output component property}",
+      "$0"
+    ]
+  }
+}

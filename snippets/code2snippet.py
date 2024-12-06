@@ -11,8 +11,6 @@ def get_argparse():
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
-    parser.add_argument("--title", type=str, help="Snippet title.")
-    parser.add_argument("--prefix", type=str, help="Prefix.")
     parser.add_argument("--fpath", type=str, help="File path.")
     args = parser.parse_args()
     return args
@@ -23,9 +21,9 @@ args = get_argparse()
 
 def main():
     strings = ""
-    strings += f'  "{args.title}":'
+    strings += f'  "title":'
     strings += " {\n"
-    strings += f'    "prefix": "{args.prefix}",\n'
+    strings += f'    "prefix":\n'
     strings += '    "body": [\n'
     with open(args.fpath) as f:
         for line in f.readlines():
