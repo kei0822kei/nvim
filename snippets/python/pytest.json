@@ -1,0 +1,60 @@
+{
+  "pytest conftest": {
+    "prefix": "pytest_conftest",
+    "body": [
+      "import pytest",
+      "",
+      "",
+      "@pytest.fixture(scope=\"session\", autouse=True)",
+      "def ${1:pytest_initialize}():",
+      "    $0"
+    ]
+  },
+  "pytest parametrize": {
+    "prefix": "pytest_parametrize",
+    "body": [
+      "import pytest",
+      "",
+      "numeric_datas = [(2, 5, 10), (3, 6, 18), (5, 9, 45)]",
+      "",
+      "",
+      "@pytest.mark.parametrize(\"a, b, expect\", numeric_datas)",
+      "def test_multiple(a, b, expect):",
+      "    assert a * b == expect",
+      "$0"
+    ]
+  },
+  "pytest helper collection": {
+    "prefix": "pytest_helper_colleciton",
+    "body": [
+      "import pytest",
+      "",
+      "",
+      "@pytest.fixture(scope=\"session\", autouse=True)",
+      "def helper_methods():",
+      "    class HelperMethods:",
+      "        @classmethod",
+      "        def compare_list_element(cls, A, B):",
+      "            for a, b in zip(A, B):",
+      "                assert a == b",
+      "",
+      "    return HelperMethods",
+      "",
+      "",
+      "def test_list(helper_methods):",
+      "    a = [1, 2, 3]",
+      "    b = [1, 2, 3]",
+      "    helper_methods.compare_list_element(a, b)",
+      "$0"
+    ]
+  },
+  "pytest tmpdir": {
+    "prefix": "pytest_tmpdir",
+    "body": [
+      "def test_tmpdir(tmpdir):",
+      "    # NOTE: When you store files and directories, use 'tmpdir.join', 'tmpdir.mkdir' ...,",
+      "    # otherwise files are not deleted after pytest.",
+      "    $0"
+    ]
+  }
+}
