@@ -1,0 +1,36 @@
+{
+  "pyproject": {
+    "prefix": "pyproject",
+    "body": [
+      "[tool.poetry]",
+      "name = \"${1:project name}\"",
+      "version = \"0.1.0\"",
+      "description = \"${2:description}\"",
+      "authors = [\"kei0822kei <mizokami.keiyu@gmail.com>\"]",
+      "readme = \"README.md\"",
+      "",
+      "[tool.poetry.dependencies]",
+      "python = \"^3.10\"",
+      "",
+      "[[tool.poetry.source]] # install torch by \"poetry add torch --source torch_cu118\"",
+      "name = \"torch_cu118\"",
+      "url = \"https://download.pytorch.org/whl/cu118\"",
+      "priority = \"explicit\"",
+      "",
+      "[tool.poetry.group.dev.dependencies]",
+      "pytest = \"^8.3.4\"",
+      "",
+      "[tool.ruff]",
+      "line-length = 79",
+      "extend-exclude = [\"tests\"]",
+      "",
+      "[tool.ruff.lint]",
+      "extend-select = [\"E501\"]",
+      "extend-ignore = [\"E402\"]",
+      "",
+      "[build-system]",
+      "requires = [\"poetry-core\"]",
+      "build-backend = \"poetry.core.masonry.api\"$0"
+    ]
+  }
+}
