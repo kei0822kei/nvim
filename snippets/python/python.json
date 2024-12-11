@@ -1,0 +1,8 @@
+{
+  "type ignore": {
+    "prefix": "type_ignore",
+    "body": [
+      "# type: ignore$0"
+    ]
+  }
+}
