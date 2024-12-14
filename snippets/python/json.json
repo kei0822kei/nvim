@@ -1,0 +1,18 @@
+{
+  "load with json": {
+    "prefix": "json_load",
+    "body": [
+      "with open(${1:filename}) as f:",
+      "    dic = json.load(dic)",
+      "$0"
+    ]
+  },
+  "dump with json": {
+    "prefix": "json_dump",
+    "body": [
+      "with open(${1:filename}, \"w\") as f:",
+      "    json.dump(dic, f)",
+      "$0"
+    ]
+  }
+}
