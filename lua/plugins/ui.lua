@@ -45,16 +45,16 @@ return {
         --   fg = "<colour-value-here>",
         --   bg = "<colour-value-here>",
         -- },
-        buffer_visible = {
-          fg = "#000000",
-          bg = "#696969",
-        },
-        buffer_selected = {
-          fg = "#008b8b",
-          bg = "#f5fffa",
-          bold = true,
-          italic = true,
-        },
+        -- buffer_visible = {
+        --   fg = "#000000",
+        --   bg = "#696969",
+        -- },
+        -- buffer_selected = {
+        --   fg = "#008b8b",
+        --   bg = "#f5fffa",
+        --   bold = true,
+        --   italic = true,
+        -- },
         -- numbers = {
         --   fg = "<colour-value-here>",
         --   bg = "<colour-value-here>",
