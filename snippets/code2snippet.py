@@ -21,9 +21,9 @@ args = get_argparse()
 
 def main():
     strings = ""
-    strings += f'  "title":'
+    strings += '  "title":'
     strings += " {\n"
-    strings += f'    "prefix":\n'
+    strings += '    "prefix": ""\n'
     strings += '    "body": [\n'
     with open(args.fpath) as f:
         for line in f.readlines():

@@ -4,5 +4,52 @@
     "body": [
       "# type: ignore$0"
     ]
+  },
+  "defprop": {
+    "prefix": "defprop",
+    "body": [
+      "    @property",
+      "    def $1(self):",
+      "        return self._$1",
+      "$0"
+    ]
+  },
+  "stop watch": {
+    "prefix": "stopwatch",
+    "body": [
+      "from functools import wraps",
+      "import time",
+      "",
+      "",
+      "def stop_watch(func):",
+      "    @wraps(func)",
+      "    def wrapper(*args, **kargs):",
+      "        start = time.time()",
+      "        result = func(*args, **kargs)",
+      "        elapsed_time = time.time() - start",
+      "        return (result, elapsed_time)",
+      "",
+      "    return wrapper",
+      "",
+      "$0"
+    ]
+  },
+  "gpu memory usage": {
+    "prefix": "gpu_memory_usage",
+    "body": [
+      "import subprocess",
+      "",
+      "",
+      "def get_gpu_memory_usage():",
+      "    result = subprocess.run(",
+      "        [\"nvidia-smi\", \"--query-gpu=memory.used\", \"--format=csv,nounits,noheader\"],",
+      "        stdout=subprocess.PIPE,",
+      "        text=True,",
+      "    )",
+      "    output = int(result.stdout.strip())",
+      "    return output",
+      "",
+      "$0"
+    ]
   }
 }

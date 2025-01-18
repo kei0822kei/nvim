@@ -126,5 +126,17 @@
       "${1:model}.eval()",
       "$0"
     ]
+  },
+  "torch model parameters": {
+    "prefix": "torch_model_paramters",
+    "body": [
+      "def count_model_parameters(model):",
+      "    count = 0",
+      "    for p in model.parameters():",
+      "        if p.requires_grad:",
+      "            count += p.numel()",
+      "    return count",
+      "$0"
+    ]
   }
 }
