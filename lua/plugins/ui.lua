@@ -1,5 +1,8 @@
 return {
   {
+    "sheerun/vim-polyglot",
+  },
+  {
     "akinsho/bufferline.nvim",
     opts = {
       highlights = {
