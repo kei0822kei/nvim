@@ -3,4 +3,6 @@
 return {
   { "mason-org/mason.nvim", version = "^1.0.0" },
   { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
+  { "nvim-treesitter/nvim-treesitter", tag = "v0.9.0" },
+  { "linux-cultist/venv-selector.nvim", branch = "main" },
 }
